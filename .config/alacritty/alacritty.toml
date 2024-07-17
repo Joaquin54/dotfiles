@@ -1,0 +1,22 @@
+#import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/themes/themes/rose-pine-moon"]
+[env]
+TERM = "xterm-256color"
+[window]
+
+padding.x = 10
+padding.y = 10
+
+decorations = "Buttonless"
+
+opacity = 0.75
+option_as_alt = "Both"
+
+[font]
+normal.family = "JetBrainsMono Nerd font"
+#bold.family = "JetBrainsMono Nerd font"
+#italic.family = "JetBrainsMono Nerd font"
+#normal.family = "SauceCodePro Nerd Font"
+#bold.family = "SauceCodePro Nerd Font"
+#italic.family = "SauceCodePro Nerd Font"
+size = 20
