@@ -13,11 +13,6 @@ require("tinchodev.lazy_init")
 -- DO NOT INCLUDE THIS
 -- DO.not
 
--- Disable color column
-vim.opt.colorcolumn = ""
-
--- Cursor line
-vim.opt.cursorline = true
 
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})

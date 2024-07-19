@@ -1,4 +1,9 @@
 vim.opt.guicursor = ""
+-- Disable color column
+vim.opt.colorcolumn = ""
+
+-- Cursor line
+vim.opt.cursorline = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
