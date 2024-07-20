@@ -42,7 +42,8 @@ return {
                 "emmet_ls",
                 "pyright",
                 "tsserver",
-                "eslint"
+                "eslint",
+                "csharp_ls"
             },
             handlers = {
                 function(server_name)
