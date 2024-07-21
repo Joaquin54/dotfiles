@@ -1,6 +1,5 @@
 vim.opt.guicursor = ""
 -- Disable color column
-vim.opt.colorcolumn = ""
 
 -- Cursor line
 vim.opt.cursorline = true
