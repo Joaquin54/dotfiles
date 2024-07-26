@@ -17,7 +17,7 @@ return {
     config = function()
         local cmp = require('cmp')
         local luasnip = require('luasnip')
-        require("luasnip.loaders.from_vscode").lazy_load()  -- Load VSCode-style snippets
+        require("luasnip.loaders.from_vscode").lazy_load() -- Load VSCode-style snippets
 
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
@@ -91,6 +91,82 @@ return {
                         }
                     }
                 end,
+                ["tsserver"] = function()
+                    require('lspconfig').tsserver.setup {
+                        capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            local opts = { buffer = bufnr }
+                            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+                            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+                            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+                            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+                            vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+                            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+                            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+                            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+                            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+                            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+                        end,
+                        cmd = { "typescript-language-server", "--stdio" },
+                        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+                        init_options = {
+                            hostInfo = "neovim"
+                        },
+                        root_dir = require 'lspconfig'.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+                        single_file_support = true
+                    }
+                end,
+                ["eslint"] = function()
+                    require('lspconfig').eslint.setup {
+                        capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            local opts = { buffer = bufnr }
+                            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+                            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+                            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+                            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+                            vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+                            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+                            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+                            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+                            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+                            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+                        end,
+                        cmd = { "typescript-language-server", "--stdio" },
+                        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte" },
+
+                        handlers = {
+                            -- ESLint handlers (adapt them to the actual function names you have defined)
+                            ["eslint/confirmESLintExecution"] = function(...) end,
+                            ["eslint/noLibrary"] = function(...) end,
+                            ["eslint/openDoc"] = function(...) end,
+                            ["eslint/probeFailed"] = function(...) end,
+                        },
+                        settings = {
+                            codeAction = {
+                                disableRuleComment = {
+                                    enable = true,
+                                    location = "separateLine"
+                                },
+                                showDocumentation = {
+                                    enable = true
+                                }
+                            },
+                            codeActionOnSave = {
+                                enable = false,
+                                mode = "all"
+                            },
+                            format = true, -- Set to false if you use another formatter
+                            nodePath = "", -- Set this to the path where your ESLint is installed if not in standard path
+                            run = "onType",
+                            useESLintClass = false,
+                            validate = "on",
+                            workingDirectory = {
+                                mode = "location"
+                            }
+                        },
+                    }
+                end,
                 ["jdtls"] = function()
                     require('lspconfig').jdtls.setup {
                         capabilities = capabilities,
@@ -131,7 +207,7 @@ return {
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirm currently selected item
+                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm currently selected item
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()

@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<CR>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('i', '<Tab>', '<Tab>', { noremap = true, silent = true })
 
 
 
