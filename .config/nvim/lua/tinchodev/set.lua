@@ -1,4 +1,5 @@
 vim.opt.guicursor = ""
+--vim.opt.winblend = 70
 -- Disable color column
 
 -- Cursor line
