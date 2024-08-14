@@ -10,11 +10,11 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-# Set name of the theme to load --- if set to "random", it will # load a 
-#random theme each time oh-my-zsh is loaded, in which case, # to know which 
-#specific one was loaded, run: echo $RANDOM_THEME # See 
-#https://github.com/ohmyzsh/ohmyzsh/wiki/Themes 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Set name of the theme to load --- if set to "random", it will # load a
+#random theme each time oh-my-zsh is loaded, in which case, # to know which
+#specific one was loaded, run: echo $RANDOM_THEME # See
+#https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk/21.0.2/libexec/openjdk.jdk/Contents/Home
 #export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java"
 #export PATH=$JAVA_HOME/bin:$PATH
@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="eza --icons=always --oneline" 
+alias ls="eza --icons=always --oneline"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 neofetch
