@@ -1,0 +1,23 @@
+# -------------------------
+# Font
+# -------------------------
+window-vsync = false
+font-family = Iosevka Nerd Font
+font-size = 25
+theme = Vague
+#background = #0A0A0A
+foreground = #c0caf5
+# -------------------------
+# Window
+# -------------------------
+window-padding-x = 40
+window-padding-y = 36
+background-opacity = 0.90
+
+# -------------------------
+# Cursor
+# -------------------------
+cursor-style = block
+cursor-style-blink = false
+cursor-color = #c0caf5
+cursor-text = #ffdd33

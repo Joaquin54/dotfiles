@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# ---- Claude Code -----------------------------------------------------------
+# Deny everything under .claude by default; allow only hand-written config.
+# This dir is the LIVE ~/.claude (symlinked), so it accumulates credentials,
+# session transcripts, file snapshots and caches. Never track them.
+/.claude/*
+!/.claude/CLAUDE.md
+!/.claude/settings.json
+!/.claude/statusline-command.sh
+!/.claude/agents/
+!/.claude/rules/
+
+# Belt-and-braces: these must never be tracked even if re-allowed above.
+.credentials.json
+*.credentials.json
+settings.local.json
+history.jsonl
+
+# ---- Generic secrets -------------------------------------------------------
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.netrc
+.npmrc

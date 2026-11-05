@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Eclipse/JDTLS formatter profile.
+  Only the settings listed here change; everything else uses the Eclipse defaults.
+-->
+<profiles version="23">
+  <profile kind="CodeFormatterProfile" name="NvimJava" version="23">
+    <!-- 4-space indentation -->
+    <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
+    <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="4"/>
+    <setting id="org.eclipse.jdt.core.formatter.indentation.size" value="4"/>
+
+    <!-- Max line length; lines longer than this get wrapped -->
+    <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120"/>
+
+    <!-- Keep single-statement method bodies on one line:
+         public Long getId() { return id; } -->
+    <setting id="org.eclipse.jdt.core.formatter.keep_method_body_on_one_line" value="one_line_if_single_item"/>
+    <setting id="org.eclipse.jdt.core.formatter.keep_simple_getter_setter_on_one_line" value="true"/>
+  </profile>
+</profiles>
