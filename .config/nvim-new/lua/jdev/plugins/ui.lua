@@ -60,6 +60,7 @@ require("incline").setup({
 })
 
 require("snacks").setup({
+  picker = { enabled = true },
   notifier = { enabled = true },
   indent = { enabled = true },
   words = { enabled = true },
