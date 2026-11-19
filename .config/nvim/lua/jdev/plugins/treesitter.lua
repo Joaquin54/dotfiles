@@ -1,9 +1,10 @@
 -- Parser names, which differ from the filetypes below: vimdoc -> help,
--- bash -> sh, tsx -> typescriptreact, and markdown_inline has no filetype
+-- bash -> sh, tsx -> typescriptreact, c_sharp -> cs, and markdown_inline has no filetype
 -- of its own (markdown's parser injects it).
 local parsers = {
   "bash",
   "c",
+  "c_sharp",
   "cpp",
   "css",
   "html",
@@ -41,6 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "python",
     "c",
     "cpp",
+    "cs",
     "rust",
     "javascript",
     "typescript",

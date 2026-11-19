@@ -32,6 +32,7 @@ vim.pack.add({
   { src = gh("chomosuke/typst-preview.nvim"), version = vim.version.range("1") },
   gh("olrtg/nvim-emmet"),
   gh("brenoprata10/nvim-highlight-colors"),
+  gh("seblyng/roslyn.nvim"),
 })
 
 require("jdev.plugins.ui")

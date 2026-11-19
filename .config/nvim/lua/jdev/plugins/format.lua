@@ -6,6 +6,7 @@ require("conform").setup({
     python = { "ruff_format" },
     c = { "clang-format" },
     cpp = { "clang-format" },
+    cs = { "csharpier" },
     javascript = prettier,
     javascriptreact = prettier,
     typescript = prettier,

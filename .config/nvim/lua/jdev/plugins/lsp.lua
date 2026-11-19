@@ -1,4 +1,12 @@
-require("mason").setup({})
+-- The default registry's Roslyn (5.12.0-1.26426.8) is older than the build
+-- roslyn.nvim needs, and the plugin's cmd passes --daemon-mode, which that
+-- build doesn't know. Crashdummyy's `roslyn` tracks the version vscode ships.
+require("mason").setup({
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
+})
 
 -- Mason package names, not lspconfig server names
 require("mason-tool-installer").setup({
@@ -12,10 +20,12 @@ require("mason-tool-installer").setup({
     "clangd",
     "rust-analyzer",
     "tinymist",
+    "roslyn",
     "stylua",
     "prettierd",
     "clang-format",
     "ruff",
+    "csharpier",
   },
   auto_update = false,
   run_on_start = true,
@@ -32,6 +42,9 @@ vim.lsp.enable({
   "clangd",
   "rust_analyzer",
   "tinymist",
+  -- Listed to keep this the server inventory, but roslyn.nvim enables it too,
+  -- so unlike the others, deleting this line alone does not turn it off
+  "roslyn",
 })
 
 vim.diagnostic.config({

@@ -60,7 +60,16 @@ require("incline").setup({
 })
 
 require("snacks").setup({
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      files = { exclude = { "*.meta" } },
+      grep = { exclude = { "*.meta" } },
+      -- git ls-files takes no exclude patterns, and .meta files are tracked,
+      -- so they are dropped with a git pathspec instead
+      git_files = { cmd_args = { ":(exclude)*.meta" } },
+    },
+  },
   notifier = { enabled = true },
   indent = { enabled = true },
   words = { enabled = true },
